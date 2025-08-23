@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
+    <title>Serenity Yoga | Find Your Inner Peace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Reset and base styles */
         * {
             margin: 0;
             padding: 0;
@@ -13,178 +14,868 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
             color: #333;
-            background-color: #f8f9fa;
+            background-color: #f9f7f4;
+            overflow-x: hidden;
         }
 
-        /* Layout */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header */
+        /* Header Styles */
         header {
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        nav {
+        header.scrolled {
+            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2c3e50;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #5d7a6b;
             text-decoration: none;
         }
 
-        /* Main content */
-        main {
-            padding: 2rem 0;
+        .logo span {
+            color: #c5a880;
         }
 
-        .content-section {
-            margin-bottom: 3rem;
+        nav ul {
+            display: flex;
+            list-style: none;
         }
 
-        h1, h2, h3 {
-            margin-bottom: 1rem;
-            color: #2c3e50;
+        nav ul li {
+            margin-left: 30px;
         }
 
-        p {
-            margin-bottom: 1rem;
+        nav ul li a {
+            text-decoration: none;
+            color: #5d7a6b;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        /* Image gallery */
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+        nav ul li a:hover {
+            color: #c5a880;
         }
 
-        .image-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #c5a880;
+            transition: width 0.3s ease;
         }
 
-        .image-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .image-card img {
+        nav ul li a:hover::after {
             width: 100%;
-            height: 200px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #5d7a6b;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: #c5a880;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid #c5a880;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: #c5a880;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #c5a880;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background: #c5a880;
+            color: white;
+        }
+
+        /* Classes Section */
+        .section-title {
+            text-align: center;
+            margin: 80px 0 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #5d7a6b;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #c5a880;
+        }
+
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .class-card {
+            position: relative;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .class-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .class-img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .class-card:hover .class-img {
+            transform: scale(1.05);
+        }
+
+        .class-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+        }
+
+        .class-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .class-overlay p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .class-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        /* About Section */
+        .about {
+            background: #f0ebe6;
+            padding: 80px 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
             display: block;
         }
 
-        .image-card .caption {
-            padding: 1rem;
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #5d7a6b;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .instructor {
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .instructor-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+            border: 3px solid #c5a880;
+        }
+
+        .instructor-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .instructor-info h4 {
+            font-size: 1.3rem;
+            color: #5d7a6b;
+            margin-bottom: 5px;
+        }
+
+        .instructor-info p {
+            margin: 0;
+            color: #777;
+            font-style: italic;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: #f9f7f4;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: #c5a880;
+            opacity: 0.2;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .testimonial-content {
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .client {
+            display: flex;
+            align-items: center;
+        }
+
+        .client-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .client-info h4 {
+            font-size: 1.1rem;
+            color: #5d7a6b;
+            margin-bottom: 5px;
+        }
+
+        .client-info p {
+            margin: 0;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(rgba(93, 122, 107, 0.9), rgba(93, 122, 107, 0.9)), url('https://images.unsplash.com/photo-1593118247619-e2d6f056869e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #c5a880;
         }
 
         /* Footer */
         footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 2rem;
+            background: #333;
+            color: #fff;
+            padding: 50px 0 20px;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .image-gallery {
-                grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #c5a880;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #c5a880;
+        }
+
+        .footer-col p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #bbb;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #555;
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #c5a880;
+            transform: translateY(-3px);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #c5a880;
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
             }
             
-            nav {
+            .about-content {
                 flex-direction: column;
-                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: all 0.3s ease;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 20px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+            }
+            
+            .btn-outline {
+                margin-left: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .class-card {
+                height: 350px;
+            }
+            
+            .class-overlay {
+                padding: 20px;
+            }
+            
+            .class-overlay h3 {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Serenity<span>Yoga</span></a>
+            <button class="mobile-menu-btn" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
             <nav>
-                <a href="#" class="logo">Your Logo</a>
-                <div>
-                    <a href="#">Home</a>
-                    <a href="#">Gallery</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact</a>
-                </div>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#classes">Classes</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </nav>
         </div>
     </header>
 
-    <main class="container">
-        <section class="content-section">
-            <h1>Welcome to Our Website</h1>
-            <p>This is a responsive website that works on all devices. Add your content here.</p>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Find Your Inner Peace Through Yoga</h1>
+            <p>Experience the transformative power of mindful movement and breath</p>
+            <div class="hero-buttons">
+                <a href="#classes" class="btn">Explore Classes</a>
+                <a href="#contact" class="btn btn-outline">Book a Session</a>
+            </div>
+        </div>
+    </section>
 
-        <section class="content-section">
-            <h2>Image Gallery</h2>
-            <p>Browse our collection of images:</p>
-            
-            <div class="image-gallery">
-                <!-- Image card example -->
-                <div class="image-card">
-                    <img src="images/image1.jpg" alt="Sample Image">
-                    <div class="caption">
-                        <h3>Image Title</h3>
-                        <p>Description of the image goes here.</p>
+    <!-- Classes Section -->
+    <section class="classes" id="classes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Yoga Classes</h2>
+            </div>
+            <div class="classes-grid">
+                <!-- Class 1 -->
+                <div class="class-card">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Hatha Yoga" class="class-img">
+                    <div class="class-overlay">
+                        <h3>Hatha Yoga</h3>
+                        <p>Perfect for beginners, focusing on basic postures and breathing techniques</p>
+                        <a href="#" class="btn">Learn More</a>
                     </div>
+                    <a href="#" class="class-link"></a>
                 </div>
                 
-                <!-- Repeat for more images -->
-                <div class="image-card">
-                    <img src="images/image2.jpg" alt="Sample Image">
-                    <div class="caption">
-                        <h3>Another Image</h3>
-                        <p>Brief description of this image.</p>
+                <!-- Class 2 -->
+                <div class="class-card">
+                    <img src="https://images.unsplash.com/photo-1599447333424-272c8fa5466f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Vinyasa Flow" class="class-img">
+                    <div class="class-overlay">
+                        <h3>Vinyasa Flow</h3>
+                        <p>Dynamic sequences that synchronize movement with breath</p>
+                        <a href="#" class="btn">Learn More</a>
                     </div>
+                    <a href="#" class="class-link"></a>
                 </div>
                 
-                <div class="image-card">
-                    <img src="images/image3.jpg" alt="Sample Image">
-                    <div class="caption">
-                        <h3>Third Image</h3>
-                        <p>Another description for this image.</p>
+                <!-- Class 3 -->
+                <div class="class-card">
+                    <img src="https://images.unsplash.com/photo-1593118247619-e2d6f056869e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Yin Yoga" class="class-img">
+                    <div class="class-overlay">
+                        <h3>Yin Yoga</h3>
+                        <p>Deep stretching and relaxation through passive poses</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                    <a href="#" class="class-link"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1576671418898-8d57f0141c16?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Yoga Instructor">
+                </div>
+                <div class="about-text">
+                    <h2>About Your Instructor</h2>
+                    <p>Meet Maya Patel, a certified yoga instructor with over 10 years of experience in various yoga disciplines. Maya believes in the transformative power of yoga to heal the body, calm the mind, and awaken the spirit.</p>
+                    <p>Her teaching style combines traditional yoga philosophy with modern anatomy and mindfulness techniques, creating a safe and nurturing environment for students of all levels.</p>
+                    <div class="instructor">
+                        <div class="instructor-img">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Maya Patel">
+                        </div>
+                        <div class="instructor-info">
+                            <h4>Maya Patel</h4>
+                            <p>Certified Yoga Instructor (RYT 500)</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="content-section">
-            <h2>About Us</h2>
-            <p>Add your company or personal information here. This section can contain any text content you need.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nunc eget nisl.</p>
-        </section>
-    </main>
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Student Testimonials</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Maya's classes have completely transformed my relationship with my body and mind. I've found a sense of peace I never thought possible."</p>
+                        <div class="client">
+                            <div class="client-img">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Sarah Johnson">
+                            </div>
+                            <div class="client-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Student for 2 years</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The mindfulness techniques I learned in Maya's classes have helped me manage stress at work and find balance in my daily life."</p>
+                        <div class="client">
+                            <div class="client-img">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Michael Chen">
+                            </div>
+                            <div class="client-info">
+                                <h4>Michael Chen</h4>
+                                <p>Student for 1 year</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"As a beginner, I was nervous to start yoga. Maya created such a welcoming environment that I now look forward to every class!"</p>
+                        <div class="client">
+                            <div class="client-img">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Emma Rodriguez">
+                            </div>
+                            <div class="client-info">
+                                <h4>Emma Rodriguez</h4>
+                                <p>Student for 6 months</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Begin Your Yoga Journey</h2>
+            <p>Ready to experience the transformative power of yoga? Contact us today to schedule your first session or learn more about our classes.</p>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Serenity Lane, Wellness City</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <span>(555) 123-4567</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>hello@serenityyoga.com</span>
+                </div>
+            </div>
+            <a href="#" class="btn">Schedule a Session</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2023 Your Website. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Serenity Yoga</h3>
+                    <p>Dedicated to helping you find balance, strength, and peace through the practice of yoga.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#classes">Classes</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Class Schedule</h3>
+                    <ul>
+                        <li>Monday: Hatha Yoga (9:00 AM)</li>
+                        <li>Wednesday: Vinyasa Flow (6:00 PM)</li>
+                        <li>Friday: Yin Yoga (7:00 PM)</li>
+                        <li>Saturday: Meditation (10:00 AM)</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to receive yoga tips, class updates, and wellness inspiration.</p>
+                    <form>
+                        <input type="email" placeholder="Your Email" style="width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 4px; border: none;">
+                        <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Serenity Yoga. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
