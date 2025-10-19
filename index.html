@@ -654,17 +654,45 @@
                     font-size: 2rem;
                 }
 
+                .classes-grid {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+
                 .class-card {
-                    height: 350px;
+                    height: auto; /* Allow cards to expand naturally */
+                    display: flex;
+                    flex-direction: column;
                 }
 
                 .class-img {
-                    width: 100%;
-                    height: 200px;
+                    height: 180px;
                     object-fit: cover;
-                    transition: transform 0.5s ease;
-                    display: block;
-                    flex-shrink: 0;
+                }
+
+                .class-content {
+                    padding: 16px;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                .class-content h3 {
+                    font-size: 1.3rem;
+                    margin-bottom: 10px;
+                }
+
+                .class-content p {
+                    font-size: 0.95rem;
+                    margin-bottom: 12px;
+                    line-height: 1.5;
+                }
+
+                .btn {
+                    align-self: flex-start;
+                    padding: 10px 20px;
+                    font-size: 0.95rem;
                 }
 
                 .yoga-quote {
@@ -676,6 +704,7 @@
                     font-size: 1.2rem;
                 }
             }
+
         </style>
     </head>
     <body>
