@@ -699,3 +699,27 @@ footer {
         font-size: 1.2rem;
     }
 }
+
+/* === Mobile Navigation Enhancements === */
+
+/* When menu is active (handled by JS) */
+nav ul.active {
+  left: 0;
+}
+
+/* Animate the hamburger icon into an "X" when open */
+.mobile-menu-btn.open i {
+  transition: transform 0.3s ease, color 0.3s ease;
+  transform: rotate(90deg);
+  color: #a78a6b;
+}
+
+/* Optional smoother transition when menu slides in */
+nav ul {
+  transition: left 0.3s ease-in-out;
+}
+
+/* Prevent background scrolling when menu is open */
+body.menu-open {
+  overflow: hidden;
+}

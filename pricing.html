@@ -73,16 +73,6 @@
         </section>
 
         <div id="footer-placeholder"></div>
-
-        <script>
-            // Load reusable header and footer
-            async function loadHTML(selector, file) {
-                const res = await fetch(file);
-                document.querySelector(selector).innerHTML = await res.text();
-            }
-            loadHTML("#header-placeholder", "partials/header.html");
-            loadHTML("#footer-placeholder", "partials/footer.html");
-        </script>
         <script src="js/main.js"></script>
     </body>
 </html>
