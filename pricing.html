@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Wilmslow Yoga | Find Your Inner Peace</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body>
+        <div id="header-placeholder"></div>
+
+        <section class="classes" id="classes">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Next steps...</h2>
+                </div>
+                <div class="classes-grid">
+                    <!-- Class 1 -->
+                    <div class="class-card">
+                        <img
+                            src="images/water_droplet_splash.jpg"
+                            alt="Droplet in the ocean"
+                            class="class-img"
+                        />
+                        <div class="class-content">
+                            <h3>Dip your toe in...</h3>
+                            <p>
+                                A 45 minute class tailored to your preferences.
+                            </p>
+                            <p>Price: £35</p>
+                            <a
+                                href="mailto:laura@wilmslowyoga.com?subject=Single Class Enquiry"
+                                class="btn"
+                                >Book one class</a
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Class 2 -->
+                    <div class="class-card">
+                        <img
+                            src="images/happy_buddha.jpg"
+                            alt="happy buddha"
+                            class="class-img"
+                        />
+                        <div class="class-content">
+                            <h3>Full plunge</h3>
+                            <p>
+                                A set of three 45 minute classes in a style of
+                                your choosing. Each class will build on the
+                                last; unlocking new strengths and poses as we
+                                journey together.
+                            </p>
+                            <p>Price: £100</p>
+                            <a
+                                href="mailto:laura@wilmslowyoga.com?subject=Three Class Enquiry"
+                                class="btn"
+                                >Book three classes</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="footer-placeholder"></div>
+
+        <script>
+            // Load reusable header and footer
+            async function loadHTML(selector, file) {
+                const res = await fetch(file);
+                document.querySelector(selector).innerHTML = await res.text();
+            }
+            loadHTML("#header-placeholder", "partials/header.html");
+            loadHTML("#footer-placeholder", "partials/footer.html");
+        </script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
